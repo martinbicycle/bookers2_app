@@ -32,16 +32,16 @@
      <h2>Book detail</h2>
        <tbody>
             <tr>
-              <td><%= @book.user.name %></td>
+              <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %><%= @book.user.name %></td>
               <td><%= @book.title %></td>
               <td><%= @book.body %></td>
               <td><% if @book.user == current_user %>
-               <%= link_to "Edit", edit_book_path(@book) %>
+               <%= link_to "Edit", edit_book_path(@book), class: 'btn btn-success'%>
                <% end %>
               </td>
               <td>
                <% if @book.user == current_user %>
-               <%= link_to "Destroy", book_path(@book), method: :delete %>
+               <%= link_to "Destroy", book_path(@book), class: 'btn btn-danger' ,method: :delete %>
                <% end %>
               </td>
            </tr>
