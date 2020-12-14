@@ -1,30 +1,36 @@
  <div class="container">
-   <div class="row">
-     <div class="col-lg-3">
-       <h1>User info</h1>
-         <p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-           <table>
-            <th>
-            <th>name</th></br>
-            <tr>introduction</tr>
-            </th>
-           </table>
-              <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-              <h1>New Book</h1>
-              <%= form_with model: @book, local:true do |f| %>
-              <h4>Title</h4>
-              <%= f.text_field :title %>
-              <h4>Opinion</h4>
-              <%= f.text_area :body %>
-              <div><%= f.submit 'Create Book' %></div>
-            <% end %>
+  <div class="row">
+   <div class="col-lg-3">
+    <h2>User info</h2>
+    <p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+     <table class="table">
+      <tr>
+       <th>name</th>
+       <th><%= @user.name %></th>
+      </tr>
+      <tr>
+       <th>introduction</th>
+       <th><%= @user.introduction %></th>
+      </tr>
+     </table>
+       <div class="row">
+        <%= link_to "編集のアイコン", edit_user_path(@user), class: 'btn btn-outline-secondary btn-block' %>
        </div>
+       <h2>New Book</h2>
+       <%= form_with model: @book, local:true do |f| %>
+       <h4>Title</h4>
+       <%= f.text_field :title %>
+       <h4>Opinion</h4>
+       <%= f.text_area :body %>
+       <div><%= f.submit 'Create Book', class: 'btn btn-success'%></div>
+     <% end %>
+   </div>
 
 
-       <div class="col-lg-9">
-        <table class="table">
-         <h2>Book detail</h2>
-          <tbody>
+   <div class="col-lg-9">
+    <table class="table">
+     <h2>Book detail</h2>
+       <tbody>
             <tr>
               <td><%= @book.user.name %></td>
               <td><%= @book.title %></td>
