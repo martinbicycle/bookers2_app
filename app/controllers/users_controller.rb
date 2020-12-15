@@ -5,14 +5,12 @@ class UsersController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-    @user = current_user
-
   end
 
   def show
     @book = Book.new
-    @books = Book.all
     @user = User.find(params[:id])
+    @books = @user.books
   end
 
   def edit
@@ -30,4 +28,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
+
 end

@@ -14,10 +14,23 @@
         </tr>
       </table>
       <div class="row">
+        <% if @user.id == current_user.id %>
         <%= link_to "編集のアイコン", edit_user_path(@user), class: 'btn btn-outline-secondary btn-block' %>
+        <% else %>
+        <%= link_to "編集のアイコン", user_path(current_user), class: 'btn btn-outline-secondary btn-block' %>
+        <% end %>
       </div>
       <h2>New Book</h2>
-      <%= form_with model: @book, local:true do |f| %>
+      <% if @book_new.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <ul>
+          <% @book_new.errors.full_messages.each do |message| %>
+          <li>error!<%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <%= form_with model: @book_new, local:true do |f| %>
       <h4>Title</h4>
       <%= f.text_field :title %>
       <h4>Opinion</h4>
@@ -30,8 +43,8 @@
         <h2>Book detail</h2>
         <tbody>
           <tr>
-            <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %><%= @book.user.name %></td>
-            <td><%= @book.title %></td>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %><%=link_to @book.user.name, user_path(@user)%></td>
+            <td><%=link_to @book.title, book_path(@book) %></td>
             <td><%= @book.body %></td>
             <td>
               <% if @book.user == current_user %>
