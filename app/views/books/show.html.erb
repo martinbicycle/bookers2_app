@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-3">
       <h2>User info</h2>
       <p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
       <table class="table">
@@ -15,12 +15,12 @@
       </table>
       <div class="row">
         <% if @user.id == current_user.id %>
-        <%= link_to "編集のアイコン", edit_user_path(@user), class: 'btn btn-outline-secondary btn-block' %>
+        <%= link_to "", edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog edit_user_9029'%>
         <% else %>
-        <%= link_to "編集のアイコン", user_path(current_user), class: 'btn btn-outline-secondary btn-block' %>
+        <%= link_to "", user_path(current_user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog edit_user_9029'%>
         <% end %>
       </div>
-      <h2>New Book</h2>
+      <h2>New book</h2>
       <% if @book_new.errors.any? %>
       <div id="error_explanation" class="alert alert-danger">
         <ul>
@@ -38,7 +38,7 @@
       <div><%= f.submit 'Create Book', class: 'btn btn-success'%></div>
       <% end %>
     </div>
-    <div class="col-lg-9">
+    <div class="col-md-8 offset-md-1">
       <table class="table">
         <h2>Book detail</h2>
         <tbody>
