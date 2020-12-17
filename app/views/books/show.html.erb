@@ -15,9 +15,9 @@
       </table>
       <div class="row">
         <% if @user.id == current_user.id %>
-        <%= link_to "", edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog edit_user_9029'%>
+        <%= link_to "", edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block fas fa-user-cog edit_user_9029'%>
         <% else %>
-        <%= link_to "", user_path(current_user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog edit_user_9029'%>
+        <%= link_to "", edit_user_path(@user.id), class: 'btn btn-outline-secondary btn-block fas fa-user-cog edit_user_9029'%>
         <% end %>
       </div>
       <h2>New book</h2>
