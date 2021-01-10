@@ -1,8 +1,8 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>Image</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
             <% end %>
           <% end %>
         </td>
-        <td><%= link_to 'Show', user_path(user), class: "user_#{user.id}" %></td>
+        <td><%= link_to user.name, user_path(user), class: "user_#{user.id}" %>さんのページ</td>
       </tr>
     <% end %>
   </tbody>
