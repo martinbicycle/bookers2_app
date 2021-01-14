@@ -68,3 +68,5 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font_awesome5_rails'
 
+gem 'jp_prefecture'
+gem 'dotenv-rails'
