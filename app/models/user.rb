@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
   
   
-    fter_create :send_welcome_mail
+  after_create :send_welcome_mail
 
   def send_welcome_mail
     ThanksMailer.complate_registration(self).deliver
